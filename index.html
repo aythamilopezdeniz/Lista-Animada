@@ -1,38 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link type="text/css" rel="stylesheet" href="../css/style.css">
     <link type="text/css" rel="stylesheet" href="../css/fontawesome.css">
-    <title>JavaScriptProjectExample</title>
+    <title>Linked List Animated</title>
 </head>
+
 <body>
-    <header class="header">
-        <div id="settings-menu">
-            <i class="fas fa-bars"></i>
+    <header>
+        <div id="header-container">
+            <div id="header-settings"><i class="fas fa-bars"></i></div>
+            <div>
+                <h1 id="header-name">Linked List Animated</h1>
+            </div>
+            <div id="header-theme"><i class="fas fa-adjust"></i></div>
         </div>
-        <div>
-            <h1><b>Lista Enlazada</b></h1>
-        </div>
-        <div id="settings-color"><i class="fas fa-adjust"></i></div>
-        <!-- <hr id="line"> -->
+        <div id="header-line"></div>
     </header>
-    <div id="line"></div>
-    <div class="container-buttons">
-        <div class="button-block">
-            <button id="button-style"><b>Add</b></button>
+    <div id="settings-container">
+        <!-- Head -->
+        <div id="settings-head">
+            <div></div>
+            <div id="settings-close">
+                <i class="fa fa-times"></i>
+            </div>
+            <div id="settings-name">
+                <h1>Settings</h1>
+            </div>
+            <div></div>
         </div>
-        <div class="button-block">
-            <button id="button-style"><b>Add</b></button>
-        </div>
-        <div class="button-block">
-            <button id="button-style"><b>Add</b></button>
-        </div>
-        <div class="button-block">
-            <button id="button-style"><b>Add</b></button>
+        <div id="settings-line"></div>
+        <!-- Functions -->
+        <div id="settings-funtions">
+            <div class="settings-container">
+                <p>Node Animation Speed</p>
+                <input type="number" placeholder="Miliseconds">
+            </div>
+            <div class="settings-container">
+                <p>Pointer Animation Speed</p>
+                <input type="number" placeholder="Miliseconds">
+            </div>
+            <div class="settings-container">
+                <p>Remove Animation Speed</p>
+                <input type="number" placeholder="Miliseconds">
+            </div>
+            <!-- <div class="settings-container">
+            </div> -->
+            <button class="button-style" id="button-save"><b>Save</b></button>
         </div>
     </div>
+    <main>
+        <!-- Error -->
+        <div id=""></div>
+        <!-- Lista -->
+        <div></div>
+        <div id="container-buttons">
+            <div class="container">
+                <button class="button-style"><b>Insert</b></button>
+                <input class="input-style" type="number" placeholder="Index">
+                <input class="input-style" type="number" placeholder="Value">
+            </div>
+            <div class="container">
+                <button class="button-style"><b>Add</b></button>
+                <input class="input-style" type="number" placeholder="Index">
+                <input class="input-style" type="number" placeholder="Value">
+            </div>
+            <div class="container">
+                <button class="button-style"><b>Remove</b></button>
+                <input class="input-style" type="number" placeholder="Index">
+                <input class="input-style" type="number" placeholder="Value">
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>

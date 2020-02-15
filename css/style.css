@@ -1,79 +1,144 @@
 body {
     margin: 0;
-}
-
-body, header {
-    background-color: rgb(34, 33, 33);
+    background-color: rgb(30, 31, 32);
 }
 
 /* ----------------------------------------------------------------- */
 /* Header */
 /* ----------------------------------------------------------------- */
-.header {
-    padding: 1rem;
-    column-count: 3;
+div#header-container {
+    display: grid;
+    color: #ffffff;
+    place-items: center;
+    grid-template-columns: 1fr 5fr 1fr;
 }
 
-.header h1 {
-    margin: 0;
-    font: bold;
-    color: white;
-    text-align: center;
-    font-family: sans-serif;
+div#header-settings, div#header-theme {
+    font-size: 2rem;
+    color: #ffffff;
 }
 
-#line {
-    width: 98%;
-    margin: auto;
-    height: 0.1rem;
+h1#header-name {
+    font-size: 2em;
+    font-style: oblique;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-text-fill-color: transparent;
+    background: -webkit-linear-gradient(-129deg, #231ac7, #b702db);
+    -webkit-background-clip: text;
+}
+
+div#header-line {
+    width: 95%;
+    height: 1px;
+    margin: 0 auto;
     background: linear-gradient(to right, #0067ff, #8900e8);
 }
 
-#settings-menu {
-    margin-left: 1rem;
-}
-
-#settings-color {
-    text-align: right;
-    margin-right: 1rem;
-}
-
-#settings-menu, #settings-color {
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-}
-
 /* ----------------------------------------------------------------- */
-/* Button */
+/* Buttons */
 /* ----------------------------------------------------------------- */
-
-/* boton {
-    background-image: linear-gradient(90deg, rgb(13, 13, 14), rgb(18, 15, 71)); 
-} */
-
-.container-buttons {
+#container-buttons {
     bottom: 0;
-    width: 100%;
-    height: 35%;
+    margin: auto;
+    display: flex;
+    height: 12rem;
     position: fixed;
+    justify-content: center;
+}
+
+.container {
+    width: 25%;
+    height: 12rem;
     text-align: center;
 }
 
-.button-block {
-    padding: 2%;
-    display: inline-block;
-}
-
-#button-style {
-    padding: 5%;
+.button-style, .input-style {
+    width: 80%;
     border: none;
-    width: 15rem;
-    color: white;
-    background-image: linear-gradient(to right, rgb(35, 26, 199), rgb(54, 54, 58)); 
+    font-weight: bold;
+    font-style: italic;
+    box-sizing: border-box;
 }
 
-#button-style:hover {
-    /* opacity: 0.6; */
-    border: 1px solid white;
+.button-style {
+    padding: 3%;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.input-style {
+    padding: 5px;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.button-style {
+    color: white;
+    background-image: linear-gradient(9deg, rgb(35, 26, 199), rgb(54, 54, 58));
+}
+
+/* ----------------------------------------------------------------- */
+/* Setting */
+/* ----------------------------------------------------------------- */
+#settings-container {
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 250px;
+    display: block;
+    position: fixed;
+    /* background-color: #000000; */
+    background-color: #323232;
+}
+
+#settings-head {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 3fr 1fr;
+}
+
+#settings-close {
+    color: #ffffff;
+}
+
+#settings-name h1 {
+    color: #ffffff;
+    font-size: 1.5em;
+    font-family: cursive;
+    text-align: right;
+}
+
+div#settings-line {
+    width: 80%;
+    height: 1px;
+    margin: 0 auto;
+    background: #ffffff;
+}
+
+#settings-funtions {
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* .settings-container {
+    margin-bottom: 10px;
+} */
+
+.settings-container p {
+    color: #ffffff;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.settings-container input[type = "number"] {
+    width: 70%;
+    font-size: 1.1em;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+}
+
+#button-save {
+    margin-top: 10%;
+    border-radius: 5px;
+    font-style: normal;
+    font-family: Arial, Helvetica, sans-serif;
 }
