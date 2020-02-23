@@ -8,7 +8,7 @@ body {
 /* ----------------------------------------------------------------- */
 div#header-container {
     display: grid;
-    color: #ffffff;
+    /* color: #ffffff; */
     place-items: center;
     grid-template-columns: 1fr 5fr 1fr;
 }
@@ -85,7 +85,7 @@ div#header-line {
     z-index: 1;
     height: 100%;
     width: 250px;
-    display: block;
+    display: none;
     position: fixed;
     /* background-color: #000000; */
     background-color: #323232;
