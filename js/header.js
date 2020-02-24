@@ -5,6 +5,7 @@ var block = false;
 
 function displayMenuSetting() {
     document.getElementById("settings-container").style.display = "block";
+    document.getElementById("settings-container").style.animation = `showMenu 1s ease`;
 }
 
 document.getElementById('header-settings').addEventListener('click', function() {
@@ -17,7 +18,10 @@ document.getElementById('header-settings').addEventListener('click', function() 
 // Close Menu
 
 function closeMenuSettings() {
-    document.getElementById("settings-container").style.display = "none";
+    document.getElementById("settings-container").style.animation = `closeMenu 1s ease`;
+    setTimeout(() => {
+        document.getElementById("settings-container").style.display = 'none';
+    }, 1000);
     block = false;
 }
 

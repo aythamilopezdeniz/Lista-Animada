@@ -89,6 +89,24 @@ div#header-line {
     background-color: #323232;
 }
 
+@keyframes showMenu {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes closeMenu {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
 #settings-head {
     display: grid;
     place-items: center;
