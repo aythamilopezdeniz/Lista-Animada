@@ -35,44 +35,51 @@
         <div id="settings-funtions">
             <div class="settings-container">
                 <p>Node Animation Speed</p>
-                <input class="input-setting" type="number" placeholder="Miliseconds">
+                <input class="input-setting" id="nodeSpeed" type="number" placeholder="Miliseconds">
             </div>
             <div class="settings-container">
                 <p>Pointer Animation Speed</p>
-                <input class="input-setting" type="number" placeholder="Miliseconds">
+                <input class="input-setting" id="pointerSpeed" type="number" placeholder="Miliseconds">
             </div>
             <div class="settings-container">
                 <p>Remove Animation Speed</p>
-                <input class="input-setting" type="number" placeholder="Miliseconds">
+                <input class="input-setting" id="removeNodeSpeed" type="number" placeholder="Miliseconds">
             </div>
-            <!-- <div class="settings-container">
-            </div> -->
+            <div id="container-save">
+                <p id="save"></p>
+            </div>
             <button class="button-style" id="button-save"><b>Save</b></button>
         </div>
     </div>
     <main>
         <!-- Error -->
-        <div id=""></div>
+        <div id="container-error">
+            <p id="error"></p>
+        </div>
         <!-- Lista -->
-        <div></div>
+        <div id="container-list-animated"></div>
         <div id="container-buttons">
             <div class="container">
-                <button class="button-style"><b>Insert</b></button>
-                <input class="input-style" type="number" placeholder="Index">
-                <input class="input-style" type="number" placeholder="Value">
+                <button class="button-style" id="insert-node"><b>Insert</b></button>
+                <input class="input-style" id="insert-node-index" type="number" placeholder="Index">
+                <input class="input-style" id="insert-node-value" type="number" placeholder="Value">
             </div>
             <div class="container">
-                <button class="button-style"><b>Add</b></button>
-                <input class="input-style" type="number" placeholder="Index">
-                <input class="input-style" type="number" placeholder="Value">
+                <button class="button-style" id="add-node"><b>Add</b></button>
+                <!-- <input class="input-style" type="number" placeholder="Index"> -->
+                <input class="input-style" id="add-node-value" type="number" placeholder="Value">
             </div>
             <div class="container">
-                <button class="button-style"><b>Remove</b></button>
-                <input class="input-style" type="number" placeholder="Index">
-                <input class="input-style" type="number" placeholder="Value">
+                <button class="button-remove" id="remove-node"><b>Remove</b></button>
+                <button class="remove-icon" id="remove-icon"><b><i class="fab fa-whmcs"></i></b></button>
+                <input class="input-style" type="number" id="remove-node-index" placeholder="Index">
+                <input class="input-style" type="number" id="remove-node-value" placeholder="Value">
             </div>
         </div>
     </main>
     <script src="../js/header.js"></script>
+    <script src="../js/nodeList.js"></script>
+    <script src="../js/errors.js"></script>
+    <script src="../js/events.js"></script>
 </body>
 </html>
