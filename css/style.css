@@ -117,6 +117,10 @@ div#settings-line {
     font-size: 1.1em;
 }
 
+p#save {
+    height: 1rem;
+}
+
 #save {
     color: #20a374;
 }

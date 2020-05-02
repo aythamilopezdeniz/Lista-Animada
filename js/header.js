@@ -60,20 +60,32 @@ function establishTheme(color1, color2, color3) {
     document.querySelectorAll('h1')[1].style.color = color2;
     document.getElementById('settings-line').style.backgroundColor = color2;
 
-    if(document.getElementById('settings-container').style.backgroundColor === "white") {
+    if(document.getElementById('settings-container').style.backgroundColor === "white")
         document.getElementById('settings-container').style.borderRight = "2px solid " + color3;
-        document.getElementById('settings-container').style.borderRadius = "25px";
-    }
-    else {
-        document.getElementById('settings-container').style.borderRight = "none";
-    }
+    else document.getElementById('settings-container').style.borderRight = '2px solid ' + color3;
    
     // Color text settings
     var setting_p = document.querySelectorAll('p');
     setting_p.forEach(value => {
         value.setAttribute('style', 'color: ' + color2);
     });
+
+    // Color text error
+    var error = document.getElementById('error');
+    error.style.color = "#d31a2c";
     
+    // Color text save
+    var success = document.getElementById('save');
+    success.style.color = "#20a374";
+
+    // Color text numbers
+    var number = document.querySelectorAll('#number');
+    if(number != null) {
+        number.forEach(value => {
+            value.setAttribute('style', 'color: white');
+        });
+    }
+
     // Get All the tags and change the background-color of the inputs
     var element = document.querySelectorAll(".input-style");
     element.forEach(value => {
