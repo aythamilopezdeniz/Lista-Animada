@@ -1,5 +1,6 @@
 // Global variables
 const message = document.getElementById('error');
+let save = document.getElementById('save');
 const succes = '<i class="fas fa-check-square"></i>';
 const alert = '<i class="fas fa-exclamation-triangle"></i>';
 
@@ -11,7 +12,8 @@ function evaluateErrorInsertNode(node) {
         message.innerHTML = null;
         return false;
     }
-    if(message.innerText.length > 0) message.firstChild.style.animation = `ShowMessage 1s ease`;
+    // if(message.innerText.length > 0)
+    message.firstChild.style.animation = `ShowMessage 1s ease`;
     return true;
 }
 
@@ -22,7 +24,8 @@ function evaluateInsertNode(node) {
     else if(node.value < 0) message.innerHTML = alert + ' Value can\'t be negative.';
     else if(node.value > 99) message.innerHTML = alert + ' Value is too big.';
     else return false;
-    if(message.innerText.length > 0) message.firstChild.style.animation = `ShowMessage 1s ease`;
+    // if(message.innerText.length > 0) 
+    message.firstChild.style.animation = `ShowMessage 1s ease`;
     return true;
 }
 
@@ -34,7 +37,8 @@ function evaluateErrorAddNode(node) {
         message.innerHTML = null;
         return false;
     }
-    if(message.innerText.length > 0) message.firstChild.style.animation = `ShowMessage 1s ease`;
+    // if(message.innerText.length > 0)
+    message.firstChild.style.animation = `ShowMessage 1s ease`;
     return true;
 }
 
@@ -42,52 +46,62 @@ function evaluateErrorAddNode(node) {
 function evaluateErrorRemoveNodeEvent(index, value) {
     if(listNodes.length === 0) message.innerHTML = alert + ' Can\'t remove a node of one linked list empty.';
     else if(index === '' && value === '') message.innerHTML = alert + ' The data are incomplete.';
-    // else if(index < 0) message.innerHTML = alert + ' The index isn\'t correct.';
-    // else if(value < 0 || value > 99) message.innerHTML = alert + ' The value isn\'t correct.';
+    else if(index != '' && value != '') message.innerHTML = alert + ' Write in one of the options.';
     else {
         message.innerHTML = null;
         return false;
     }
-    if(message.innerText.length > 0) message.firstChild.style.animation = `ShowMessage 1s ease`;
+    message.firstChild.style.animation = `ShowMessage 1s ease`;
     return true;
 }
 
 // Evaluate errors to remove index node
 function evaluateErrorRemoveNode(index) {
-    if(index < 0 || index > (listNodes.length - 1)) message.innerHTML = alert + ' Can\'t remove a node that not exist.';
+    if(parseInt(index) < 0 || parseInt(index) > (listNodes.length - 1)) message.innerHTML = alert + ' Can\'t remove a node that not exist.';
     else {
         message.innerHTML = null;
         return false;
     }
-    if(message.innerText.length > 0) message.firstChild.style.animation = `ShowMessage 1s ease`;
+    message.firstChild.style.animation = `ShowMessage 1s ease`;
     return true;
 }
 
 // Evaluate errors to remove multiple nodes
 function evaluateErrorRemoveMultipleFiguresDOM(value) {
-    if(value < 0 || value > 99) message.innerHTML = alert + ' The value isn\'t correct.';
+    if(parseInt(value) < 0 || parseInt(value) > 99) message.innerHTML = alert + ' The value isn\'t correct.';
     else {
         message.innerHTML = null;
         return false;
     }
-    if(message.innerText.length > 0) message.firstChild.style.animation = `ShowMessage 1s ease`;
+    message.firstChild.style.animation = `ShowMessage 1s ease`;
     return true;
 }
 
 // Search the value if it found in the linked list
 function searchValueInLinkedList(value) {
-    // var isContained = false;
     for (let index = 0; index <listNodes.length; index++) {
-        // isContained = listNodes[index].firstChild.innerHTML === value;
-        // if(isContained) {
         if(listNodes[index].firstChild.innerHTML === value) {
             message.innerHTML = null;
             return false;
         }
     }
-    // if(!isContained) {
-        message.innerHTML = alert + ' The value isn\'t found.';
-        message.firstChild.style.animation = `ShowMessage 1s ease`;
-    // }
+    message.innerHTML = alert + ' The value isn\'t found.';
+    message.firstChild.style.animation = `ShowMessage 1s ease`;
+    return true;
+}
+
+// Evaluate parameters of settings
+function checkSettingsLinkedList(nodeSpeed, pointerNode, removeSpeed) {
+    if(nodeSpeed === '' && pointerNode === '' && removeSpeed === '') save.innerHTML = alert + ' Incomplete data.';
+    else if(nodeSpeed != '' && (parseInt(nodeSpeed) < 0 || isNaN(parseInt(nodeSpeed)))) save.innerHTML = alert + ' Node speed incorrect.';
+    else if(pointerNode != '' && (parseInt(pointerNode) < 0 || isNaN(parseInt(pointerNode)))) save.innerHTML = alert + ' Pointer speed incorrect.';
+    else if(removeSpeed != '' && (parseInt(removeSpeed) < 0 || isNaN(parseInt(removeSpeed)))) save.innerHTML = alert + ' Remove speed incorrect.';
+    else {
+        save.innerHTML = null;
+        save.style.color = '#20a374';
+        return false;
+    }
+    save.style.color = '#d31a2c';
+    save.firstChild.style.animation = `ShowMessage 1s ease`;
     return true;
 }

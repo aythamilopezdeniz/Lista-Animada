@@ -2,6 +2,9 @@
 var listNodes = [];
 var listArrows = [];
 const list = document.getElementById('container-list-animated');
+var nodeSpeed = 1000;
+var pointerSpeed = 1000;
+var removeNodeSpeed = 1000;
 
 // Class Node
 class Node {
@@ -20,7 +23,7 @@ class UI {
         const figure = createFigure(node);
         const arrow = createArrow();
         addFigureDOM(figure, arrow, node);
-        // clearInsertData(node);
+        clearInsertData(node);
     }
     
     // Add Nodes
@@ -29,14 +32,14 @@ class UI {
         const figure = createFigure(node);
         const arrow = createArrow();
         addFigureDOM(figure, arrow, node);
-        // clearAddData(node);
+        clearAddData(node);
     }
     
     // Remove Node
     RemoveNode(index) {
         if (evaluateErrorRemoveNode(index)) return;
         removeFigureDOM(index);
-        // clearRemoveNode(index);
+        clearRemoveNode(index);
         hideInputs();
     }
 
@@ -45,6 +48,7 @@ class UI {
         if(evaluateErrorRemoveMultipleFiguresDOM(value)) return;
         if(searchValueInLinkedList(value)) return;
         removeMultipleFiguresDOM(value);
+        clearRemoveValue(value);
         hideInputs();
     }
 }
@@ -106,8 +110,8 @@ async function removeFigureDOM(index) {
 async function removeMultipleFiguresDOM(value) {
     for (let index = 0; index < listNodes.length; index++) {
         if (listNodes[index].firstChild.innerHTML !== value) continue;
-        await animateNode(listNodes[index]);
-        await animateArrow(listArrows[index]);
+        await animateRemoveNode(listNodes[index]);
+        await animateRemoveArrow(listArrows[index]);
         list.removeChild(listNodes[index]);
         list.removeChild(listArrows[index]);
         listNodes.splice(index, 1);
@@ -118,23 +122,46 @@ async function removeMultipleFiguresDOM(value) {
 // Give animation node
 function animateNode(node) {
     return new Promise(function(resolve) {
-        node.style.animation = 'circle 1s linear';
+        node.style.animation = 'circle ' + (nodeSpeed/1000) +'s linear';
         setTimeout(() => {
             node.style.animation = null;
             resolve();
-        }, 1000);
+        }, nodeSpeed);
     });
 }
 
 // Give animation arrow
 function animateArrow(arrow) {
     return new Promise(function(resolve) {
-        arrow.style.animation = 'showArrow 2s linear';
-        arrow.style.animation = 'moveArrow 1s linear';
+        arrow.style.animation = 'showArrow '+ (pointerSpeed/1000) + 's linear';
+        arrow.style.animation = 'moveArrow '+ (pointerSpeed/1000) + 's linear';
         setTimeout(() => {
             arrow.style.animation = null;
             resolve();
-        }, 1000);
+        }, pointerSpeed);
+    });
+}
+
+// Give animation remove node
+function animateRemoveNode(node) {
+    return new Promise(function(resolve) {
+        node.style.animation = 'circle ' + (removeNodeSpeed/1000) +'s linear';
+        setTimeout(() => {
+            node.style.animation = null;
+            resolve();
+        }, removeNodeSpeed);
+    });
+}
+
+// Give animation remove arrow
+function animateRemoveArrow(arrow) {
+    return new Promise(function(resolve) {
+        arrow.style.animation = 'showArrow '+ (removeNodeSpeed/1000) + 's linear';
+        arrow.style.animation = 'moveArrow '+ (removeNodeSpeed/1000) + 's linear';
+        setTimeout(() => {
+            arrow.style.animation = null;
+            resolve();
+        }, removeNodeSpeed);
     });
 }
 
@@ -156,51 +183,7 @@ function clearRemoveNode(index) {
     if(index != '') document.getElementById('remove-node-index').value = '';
 }
 
-// // Give animation node
-// function animateNode2(node) {
-//     return new Promise(function(resolve) {
-//         node.style.animation = 'circle 1s linear';
-//         setTimeout(() => {
-//             node.style.animation = null;
-//             resolve();
-//         }, 1000);
-//     });
-// }
-
-// // Give animation arrow
-// function animateArrow2(arrow) {
-//     return new Promise(function(resolve) {
-//         arrow.style.animation = 'showArrow 2s linear';
-//         arrow.style.animation = 'moveArrow 1s linear';
-//         setTimeout(() => {
-//             arrow.style.animation = null;
-//             resolve();
-//         }, 1000);
-//     });
-// }
-
-// Modify parameters of animation
-// function modificateParameters(nodeSpeed, pointerSpeed, removeNodeSpeed) {
-    //     modificateNodeSpeed(nodeSpeed);
-//     modificatePointerSpeed(pointerSpeed);
-//     modificateRemoveNodeSpeed(removeNodeSpeed);
-// }
-
-// Modify node's animation
-// function modificateNodeSpeed(nodeSpeed) {
-//     console.log('value ' + nodeSpeed.value);
-//     const circle = document.getElementById('circle');
-//     circle.style = 'animation-duration: 0.' + nodeSpeed.value + 's';
-// }
-
-// Modify pointer's animation
-// function modificatePointerSpeed(pointerSpeed) {}
-
-// Modify node's animation to eliminate
-// function modificateRemoveNodeSpeed(removeNodeSpeed) {}
-
-// Animation for button saved
-// function animationSaved() {
-//     const save = document.getElementById('save');
-//     save.innerHTML = succes + ' Saved';
-// }
+// Reset Remove Number
+function clearRemoveValue(value) {
+    if(value != '') document.getElementById('remove-node-value').value = '';
+}

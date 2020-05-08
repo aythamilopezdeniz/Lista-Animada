@@ -5,7 +5,7 @@ var block = false;
 
 function displayMenuSetting() {
     document.getElementById("settings-container").style.display = "block";
-    document.getElementById("settings-container").style.animation = `showMenu 1s ease`;
+    document.getElementById("settings-container").style.animation = `showMenu 2s ease`;
 }
 
 document.getElementById('header-settings').addEventListener('click', function() {
@@ -18,10 +18,17 @@ document.getElementById('header-settings').addEventListener('click', function() 
 // Close Menu
 
 function closeMenuSettings() {
-    document.getElementById("settings-container").style.animation = `closeMenu 1s ease`;
+    document.getElementById("settings-container").style.animation = `closeMenu 2s ease`;
     setTimeout(() => {
         document.getElementById("settings-container").style.display = 'none';
-    }, 1000);
+        var nodeSpeed = document.getElementById('nodeSpeed');
+        var pointerSpeed = document.getElementById('pointerSpeed');
+        var removeSpeed = document.getElementById('removeSpeed');
+        if(nodeSpeed != null) nodeSpeed.value = '';
+        if(pointerSpeed != null) pointerSpeed.value = '';
+        if(removeSpeed != null) removeSpeed.value = '';
+        document.getElementById('save').innerHTML = null;
+    }, 2000);
     block = false;
 }
 
@@ -65,7 +72,7 @@ function establishTheme(color1, color2, color3) {
     else document.getElementById('settings-container').style.borderRight = '2px solid ' + color3;
    
     // Color text settings
-    var setting_p = document.querySelectorAll('p');
+    var setting_p = document.querySelectorAll('#title');
     setting_p.forEach(value => {
         value.setAttribute('style', 'color: ' + color2);
     });
@@ -76,7 +83,8 @@ function establishTheme(color1, color2, color3) {
     
     // Color text save
     var success = document.getElementById('save');
-    success.style.color = "#20a374";
+    if(success.style.color === "rgb(32, 163, 116)") success.style.color = "#20a374";
+    else if(success.style.color === "rgb(211, 26, 44)") success.style.color = "#d31a2c";
 
     // Color text numbers
     var number = document.querySelectorAll('#number');

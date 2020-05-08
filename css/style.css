@@ -38,7 +38,7 @@ div#header-line {
 /* ----------------------------------------------------------------- */
 #settings-container {
     top: 0;
-    z-index: 1;
+    z-index: 2;
     height: 100%;
     width: 250px;
     display: none;
@@ -178,19 +178,9 @@ p#save {
     margin-bottom: 1rem;
     display: inline-block;
     background-color: #8900e8;
-    /* animation: circle 2s alternate linear; */
-
-    /* animation-name: circle;
-    animation-duration: 2s;
-    animation-direction: alternate;
-    animation-timing-function: linear; */
 }
 
-/* @keyframes circle {
-    from {transform: scale(1);}
-    to {transform: scale(1.05);}
-} */
-
+/* Animation */
 @keyframes circle {
     0% {transform: scale(1);}
     50% {transform: scale(1.2);}
@@ -203,18 +193,7 @@ p#save {
     margin-top: 0.5em;
     text-align: center;
     font-family: sans-serif;
-
-    /* animation-name: number; */
-    /* animation-duration: 2s; */
-    /* animation-iteration-count: 6; */
-    /* animation-direction: alternate; */
-    /* animation-timing-function: linear; */
 }
-
-/* @keyframes number {
-    from {transform: rotate(10deg);}
-    to {transform: rotate(-10deg);}
-} */
 
 #arrow {
     margin: 1.1em 0.5em 0 0.5em;
@@ -225,6 +204,7 @@ p#save {
     font-size: 3em;
 }
 
+/* Animation */
 @keyframes showArrow {
     0% {transform: translateX(-100%);}
     80% {transform: translateX(10%);}
@@ -265,7 +245,6 @@ p#save {
     display: flex;
     height: 12rem;
     position: fixed;
-    /* margin: auto; */
     margin-left: 1rem;
     justify-content: center;
 }
